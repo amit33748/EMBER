@@ -187,3 +187,29 @@
 }
 .hero-card-cap { font-size: var(--fs-xs); color: var(--text-3); margin-top: -2px; letter-spacing: .06em; text-transform: uppercase; }
 .bento-feature .bt { margin-top: auto; }
+
+/* ── narrow-phone fixes (Samsung/Android 360–412 px) ── */
+/* grid children may shrink below their content width; otherwise tiles push past the edge */
+.bento { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.bento > *, .bento-feature, .bento-cell, .spot > *, .method > *, .tips > * { min-width: 0; }
+.bento-cell .stat-tile { overflow: hidden; }
+@media (max-width: 1100px) { .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) {
+  .bento-mix { grid-column: span 2; }
+  .bento-feature { padding: 18px; }
+  .bento-num { font-size: clamp(3.5rem, 18vw, 5rem); }
+  .bento-feature .flex.items-end { gap: 12px; }
+  .spot { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* nav: theme switch lives in the footer on phones; keep wordmark + CTA on one line */
+  .l-nav { padding: 6px 6px 6px 14px; gap: 8px; }
+  .l-nav .seg[aria-label='Theme'] { display: none; }
+  .l-nav .btn-sm { padding: 0 12px; }
+  .sos { right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); height: 38px; padding: 0 14px; }
+  .hero-card-grid > div { min-width: 0; }
+}
+@media (max-width: 380px) {
+  .bento-cell .stat-tile .st-value { font-size: 22px; }
+  .hero-ctas .btn { padding: 0 18px; }
+}
+.safety > *, .safety-nums > *, .notice > * { min-width: 0; }
+@media (max-width: 380px) { .safety-nums .mono { font-size: 44px; } .safety-call { padding: 20px; } }

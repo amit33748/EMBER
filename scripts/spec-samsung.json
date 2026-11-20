@@ -1,0 +1,65 @@
+{
+ "shots": [
+  {
+   "name": "devices/landing-samsung-s23",
+   "url": "/",
+   "theme": "light",
+   "viewport": {
+    "width": 360,
+    "height": 780
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "(() => { const W = innerWidth; const bad = [...document.querySelectorAll('.landing *')].filter(e => { if (e.closest('.hero-map, .l-footer-big, .hero-scrim, .maplibregl-map, svg')) return false; const r = e.getBoundingClientRect(); if (r.width < 2 || r.height < 2) return false; const s = getComputedStyle(e); if (s.display === 'none' || s.visibility === 'hidden' || s.position === 'fixed' && e.classList.contains('skip')) return false; return r.right > W + 1 || r.left < -1; }); const top = bad.filter(e => !bad.some(p => p !== e && p.contains(e))); return { W, offenders: top.slice(0, 8).map(e => (e.className.baseVal ?? e.className).toString().split(' ')[0] + ':' + Math.round(e.getBoundingClientRect().right)) }; })()"
+  },
+  {
+   "name": "devices/landing-samsung-s24u",
+   "url": "/",
+   "theme": "light",
+   "viewport": {
+    "width": 384,
+    "height": 824
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "(() => { const W = innerWidth; const bad = [...document.querySelectorAll('.landing *')].filter(e => { if (e.closest('.hero-map, .l-footer-big, .hero-scrim, .maplibregl-map, svg')) return false; const r = e.getBoundingClientRect(); if (r.width < 2 || r.height < 2) return false; const s = getComputedStyle(e); if (s.display === 'none' || s.visibility === 'hidden' || s.position === 'fixed' && e.classList.contains('skip')) return false; return r.right > W + 1 || r.left < -1; }); const top = bad.filter(e => !bad.some(p => p !== e && p.contains(e))); return { W, offenders: top.slice(0, 8).map(e => (e.className.baseVal ?? e.className).toString().split(' ')[0] + ':' + Math.round(e.getBoundingClientRect().right)) }; })()"
+  },
+  {
+   "name": "devices/landing-samsung-pixel",
+   "url": "/",
+   "theme": "light",
+   "viewport": {
+    "width": 412,
+    "height": 915
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "(() => { const W = innerWidth; const bad = [...document.querySelectorAll('.landing *')].filter(e => { if (e.closest('.hero-map, .l-footer-big, .hero-scrim, .maplibregl-map, svg')) return false; const r = e.getBoundingClientRect(); if (r.width < 2 || r.height < 2) return false; const s = getComputedStyle(e); if (s.display === 'none' || s.visibility === 'hidden' || s.position === 'fixed' && e.classList.contains('skip')) return false; return r.right > W + 1 || r.left < -1; }); const top = bad.filter(e => !bad.some(p => p !== e && p.contains(e))); return { W, offenders: top.slice(0, 8).map(e => (e.className.baseVal ?? e.className).toString().split(' ')[0] + ':' + Math.round(e.getBoundingClientRect().right)) }; })()"
+  },
+  {
+   "name": "devices/landing-samsung-se",
+   "url": "/",
+   "theme": "light",
+   "viewport": {
+    "width": 320,
+    "height": 568
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "(() => { const W = innerWidth; const bad = [...document.querySelectorAll('.landing *')].filter(e => { if (e.closest('.hero-map, .l-footer-big, .hero-scrim, .maplibregl-map, svg')) return false; const r = e.getBoundingClientRect(); if (r.width < 2 || r.height < 2) return false; const s = getComputedStyle(e); if (s.display === 'none' || s.visibility === 'hidden' || s.position === 'fixed' && e.classList.contains('skip')) return false; return r.right > W + 1 || r.left < -1; }); const top = bad.filter(e => !bad.some(p => p !== e && p.contains(e))); return { W, offenders: top.slice(0, 8).map(e => (e.className.baseVal ?? e.className).toString().split(' ')[0] + ':' + Math.round(e.getBoundingClientRect().right)) }; })()"
+  },
+  {
+   "name": "devices/landing-samsung-s23-snapshot",
+   "url": "/",
+   "theme": "light",
+   "viewport": {
+    "width": 360,
+    "height": 780
+   },
+   "mobile": true,
+   "dpr": 2,
+   "wait": 4000,
+   "scrollTo": "#snapshot"
+  }
+ ]
+}

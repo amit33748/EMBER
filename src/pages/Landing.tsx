@@ -114,7 +114,7 @@ function Hero() {
             <div><span className="eyebrow">Active</span><b className="mono"><CountUp value={k.active} /></b></div>
             <div><span className="eyebrow">24h</span><b className="mono"><CountUp value={k.last24h} /></b></div>
             <div><span className="eyebrow">Response</span><b className="mono">{k.avgResponseMin ? <CountUp value={k.avgResponseMin} decimals={1} /> : '—'}<small>min</small></b></div>
-            <div><span className="eyebrow">High+ zones</span><b className="mono"><CountUp value={k.atRiskZones} /><small>/ 21</small></b></div>
+            <div><span className="eyebrow">High+</span><b className="mono"><CountUp value={k.atRiskZones} /><small>/ 21</small></b></div>
           </div>
         </motion.aside>
       </motion.div>
@@ -151,7 +151,7 @@ function Snapshot() {
               height={110}
               color={`var(--hz-${k.districtBand})`}
               label="District hazard score, last 24 hours and next-24-hour outlook"
-              xLabels={['−24h', 'now', '+24h outlook']}
+              xLabels={['−24h', 'now', '+24h']}
             />
           </div>
         </motion.div>
