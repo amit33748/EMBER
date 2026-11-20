@@ -1,0 +1,128 @@
+{
+ "shots": [
+  {
+   "name": "basemaps/bm-positron",
+   "url": "/live",
+   "theme": "light",
+   "storage": {
+    "ember-basemap": "positron"
+   },
+   "wait": 5500,
+   "probe": "({ wind: !!document.querySelector('.wind-canvas'), overlaysOnTop: (() => { const m = window.__map_full; const ids = m.getStyle().layers.map(l => l.id); return ids.indexOf('density-a') > ids.indexOf('base') || !ids.includes('base'); })() })"
+  },
+  {
+   "name": "basemaps/bm-dark",
+   "url": "/live",
+   "theme": "light",
+   "storage": {
+    "ember-basemap": "dark"
+   },
+   "wait": 5500,
+   "probe": "({ wind: !!document.querySelector('.wind-canvas'), overlaysOnTop: (() => { const m = window.__map_full; const ids = m.getStyle().layers.map(l => l.id); return ids.indexOf('density-a') > ids.indexOf('base') || !ids.includes('base'); })() })"
+  },
+  {
+   "name": "basemaps/bm-liberty",
+   "url": "/live",
+   "theme": "light",
+   "storage": {
+    "ember-basemap": "liberty"
+   },
+   "wait": 5500,
+   "probe": "({ wind: !!document.querySelector('.wind-canvas'), overlaysOnTop: (() => { const m = window.__map_full; const ids = m.getStyle().layers.map(l => l.id); return ids.indexOf('density-a') > ids.indexOf('base') || !ids.includes('base'); })() })"
+  },
+  {
+   "name": "basemaps/bm-bright",
+   "url": "/live",
+   "theme": "light",
+   "storage": {
+    "ember-basemap": "bright"
+   },
+   "wait": 5500,
+   "probe": "({ wind: !!document.querySelector('.wind-canvas'), overlaysOnTop: (() => { const m = window.__map_full; const ids = m.getStyle().layers.map(l => l.id); return ids.indexOf('density-a') > ids.indexOf('base') || !ids.includes('base'); })() })"
+  },
+  {
+   "name": "basemaps/bm-fiord",
+   "url": "/live",
+   "theme": "light",
+   "storage": {
+    "ember-basemap": "fiord"
+   },
+   "wait": 5500,
+   "probe": "({ wind: !!document.querySelector('.wind-canvas'), overlaysOnTop: (() => { const m = window.__map_full; const ids = m.getStyle().layers.map(l => l.id); return ids.indexOf('density-a') > ids.indexOf('base') || !ids.includes('base'); })() })"
+  },
+  {
+   "name": "basemaps/bm-satellite",
+   "url": "/live",
+   "theme": "light",
+   "storage": {
+    "ember-basemap": "satellite"
+   },
+   "wait": 5500,
+   "probe": "({ wind: !!document.querySelector('.wind-canvas'), overlaysOnTop: (() => { const m = window.__map_full; const ids = m.getStyle().layers.map(l => l.id); return ids.indexOf('density-a') > ids.indexOf('base') || !ids.includes('base'); })() })"
+  },
+  {
+   "name": "basemaps/bm-topo",
+   "url": "/live",
+   "theme": "light",
+   "storage": {
+    "ember-basemap": "topo"
+   },
+   "wait": 5500,
+   "probe": "({ wind: !!document.querySelector('.wind-canvas'), overlaysOnTop: (() => { const m = window.__map_full; const ids = m.getStyle().layers.map(l => l.id); return ids.indexOf('density-a') > ids.indexOf('base') || !ids.includes('base'); })() })"
+  },
+  {
+   "name": "basemaps/picker-open",
+   "url": "/live",
+   "theme": "light",
+   "wait": 4500,
+   "js": "document.querySelector('[aria-label=\"Basemap\"]').click()",
+   "after": 800
+  },
+  {
+   "name": "basemaps/picker-phone",
+   "url": "/live",
+   "theme": "dark",
+   "viewport": {
+    "width": 375,
+    "height": 812
+   },
+   "mobile": true,
+   "dpr": 2,
+   "wait": 4500,
+   "js": "document.querySelector('[aria-label=\"Basemap\"]').click()",
+   "after": 800,
+   "probe": "({ overflowX: document.documentElement.scrollWidth - innerWidth })"
+  },
+  {
+   "name": "basemaps/wind-india-dark",
+   "url": "/live",
+   "theme": "dark",
+   "storage": {
+    "ember-basemap": "dark"
+   },
+   "wait": 5000,
+   "js": "(async () => { document.querySelector('.topbar-menu').click(); await new Promise(r => setTimeout(r, 300)); [...document.querySelectorAll('.layers-pop .chip')].find(c => /Wind/.test(c.textContent)).click(); document.querySelector('.topbar-menu').click(); window.__map_full.jumpTo({ center: [75, 12], zoom: 3.3 }); })()",
+   "after": 4000,
+   "probe": "({ wind: !!document.querySelector('.wind-canvas'), drawn: (() => { const c = document.querySelector('.wind-canvas'); if (!c) return 0; const d = c.getContext('2d').getImageData(0,0,c.width,c.height).data; let n = 0; for (let i = 3; i < d.length; i += 16) if (d[i] > 20) n++; return n; })() })"
+  },
+  {
+   "name": "basemaps/wind-india-satellite",
+   "url": "/live",
+   "theme": "dark",
+   "storage": {
+    "ember-basemap": "satellite"
+   },
+   "wait": 5000,
+   "js": "(async () => { document.querySelector('.topbar-menu').click(); await new Promise(r => setTimeout(r, 300)); [...document.querySelectorAll('.layers-pop .chip')].find(c => /Wind/.test(c.textContent)).click(); document.querySelector('.topbar-menu').click(); window.__map_full.jumpTo({ center: [75, 12], zoom: 3.3 }); })()",
+   "after": 4000,
+   "probe": "({ wind: !!document.querySelector('.wind-canvas'), drawn: (() => { const c = document.querySelector('.wind-canvas'); if (!c) return 0; const d = c.getContext('2d').getImageData(0,0,c.width,c.height).data; let n = 0; for (let i = 3; i < d.length; i += 16) if (d[i] > 20) n++; return n; })() })"
+  },
+  {
+   "name": "basemaps/default-wind-off",
+   "url": "/live",
+   "theme": "dark",
+   "wait": 5000,
+   "probe": "({ wind: !!document.querySelector('.wind-canvas'), chipOn: [...document.querySelectorAll('.chip')].filter(c=>/Wind/.test(c.textContent)).map(c=>c.getAttribute('aria-pressed')) })"
+  }
+ ]
+}

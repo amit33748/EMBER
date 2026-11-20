@@ -1,0 +1,41 @@
+{
+  "name": "gurugram-fire-hazard",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "gen:geo": "vite-node scripts/gen-geo.ts",
+    "gen:thumbs": "node scripts/gen-thumbs.mjs && python scripts/gen-thumbs-post.py"
+  },
+  "dependencies": {
+    "@turf/turf": "^7.1.0",
+    "d3-contour": "^4.0.2",
+    "d3-delaunay": "^6.0.4",
+    "lucide-react": "^0.460.0",
+    "maplibre-gl": "^5.6.2",
+    "motion": "^11.11.17",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "zustand": "^5.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/d3-contour": "^3.0.6",
+    "@types/d3-delaunay": "^6.0.4",
+    "@types/geojson": "^7946.0.16",
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "playwright-core": "^1.48.2",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.5"
+  }
+}

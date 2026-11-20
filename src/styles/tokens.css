@@ -1,0 +1,171 @@
+/* ─────────────────────────────────────────────────────────────
+   EMBER design tokens — single source of truth (light + dark).
+   Components use these variables only. Production reuses as-is.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* type */
+  --font-display: 'Unbounded', 'Arial Black', sans-serif;
+  --font-body: 'Instrument Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-md: 0.9375rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2.25rem;
+  --fs-3xl: clamp(2.5rem, 6vw, 5rem);
+  --fs-hero: clamp(2.75rem, 8.5vw, 7.5rem);
+
+  /* space (4px base) */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px;
+  --s-6: 24px; --s-8: 32px; --s-10: 40px; --s-12: 48px; --s-16: 64px; --s-24: 96px;
+
+  /* radius */
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px; --r-pill: 999px;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast: 160ms;
+  --t-med: 320ms;
+  --t-slow: 700ms;
+
+  /* ── LIGHT (paper + soot) ── */
+  --bg: #f3eee6;
+  --bg-2: #ebe4d8;
+  --surface: rgba(252, 249, 244, 0.78);
+  --surface-solid: #fbf8f3;
+  --surface-strong: rgba(255, 253, 249, 0.94);
+  --line: rgba(40, 28, 18, 0.12);
+  --line-strong: rgba(40, 28, 18, 0.24);
+  --text: #1c1510;
+  --text-2: #5a4c40;
+  --text-3: #706357;
+  --accent: #b53a0d;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(181, 58, 13, 0.12);
+  --glow: rgba(210, 67, 15, 0.0);
+  --shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 12px 40px -12px rgba(60, 35, 15, 0.28);
+  --grain-opacity: 0.05;
+  --map-veil: rgba(243, 238, 230, 0.0);
+
+  /* hazard ramp (sequential, tuned for light bg) */
+  --hz-0: #3f8f84;   /* Low */
+  --hz-1: #ad7f0b;   /* Moderate */
+  --hz-2: #d66511;   /* High */
+  --hz-3: #cc2f1e;   /* Very High */
+  --hz-4: #86103a;   /* Extreme */
+
+  /* hazard INK: same hues, darkened to ≥4.5:1 on bg — use for text, keep --hz-* for fills */
+  --ramp: linear-gradient(90deg, transparent 0%, var(--hz-1) 14%, var(--hz-2) 50%, var(--hz-3) 78%, var(--hz-4) 100%);
+  --hz-ink-0: #316f66;
+  --hz-ink-1: #825f09;
+  --hz-ink-2: #a14c0d;
+  --hz-ink-3: #bd2c1c;
+  --hz-ink-4: #86103a;
+
+
+  /* categorical (incident types) — never reuse the hazard ramp for categories */
+  --cat-building: #d2430f;
+  --cat-electrical: #b07d00;
+  --cat-industrial: #a3175a;
+  --cat-vehicle: #4f6d8a;
+  --cat-garbage: #7a5bb5;
+  --cat-scrub: #2f8a6f;
+
+  --ok: #2a7052;
+  --warn: #895b17;
+  --bad: #ba311c;
+
+  color-scheme: light;
+}
+
+/* ── DARK (warm soot + ember) ── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0c0a08;
+    --bg-2: #14100d;
+    --surface: rgba(22, 17, 13, 0.72);
+    --surface-solid: #17120e;
+    --surface-strong: rgba(26, 20, 15, 0.92);
+    --line: rgba(255, 220, 190, 0.09);
+    --line-strong: rgba(255, 220, 190, 0.2);
+    --text: #f4ece2;
+    --text-2: #b9aa9b;
+    --text-3: #968c82;
+    --accent: #ff6a1f;
+    --accent-ink: #160b04;
+    --accent-soft: rgba(255, 106, 31, 0.14);
+    --glow: rgba(255, 106, 31, 0.35);
+    --shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 20px 60px -20px rgba(0, 0, 0, 0.8);
+    --grain-opacity: 0.07;
+
+    --hz-0: #5fb3a6;
+    --hz-1: #f2c94c;
+    --hz-2: #ff8a2b;
+    --hz-3: #f2462e;
+    --hz-4: #d1185e;
+    --ramp: linear-gradient(90deg, transparent 0%, var(--hz-0) 12%, var(--hz-1) 35%, var(--hz-2) 58%, var(--hz-3) 80%, var(--hz-4) 100%);
+    --hz-ink-0: #5fb3a6;
+    --hz-ink-1: #f2c94c;
+    --hz-ink-2: #ff8a2b;
+    --hz-ink-3: #f35b46;
+    --hz-ink-4: #e06291;
+
+
+    --cat-building: #ff7a3d;
+    --cat-electrical: #f5cf55;
+    --cat-industrial: #ff4f8b;
+    --cat-vehicle: #8fb3d9;
+    --cat-garbage: #b49cf0;
+    --cat-scrub: #5fd0a6;
+    --ok: #5fc28f;
+    --warn: #f2c94c;
+    --bad: #f2462e;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --bg: #0c0a08;
+  --bg-2: #14100d;
+  --surface: rgba(22, 17, 13, 0.72);
+  --surface-solid: #17120e;
+  --surface-strong: rgba(26, 20, 15, 0.92);
+  --line: rgba(255, 220, 190, 0.09);
+  --line-strong: rgba(255, 220, 190, 0.2);
+  --text: #f4ece2;
+  --text-2: #b9aa9b;
+  --text-3: #968c82;
+  --accent: #ff6a1f;
+  --accent-ink: #160b04;
+  --accent-soft: rgba(255, 106, 31, 0.14);
+  --glow: rgba(255, 106, 31, 0.35);
+  --shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 20px 60px -20px rgba(0, 0, 0, 0.8);
+  --grain-opacity: 0.07;
+
+  --hz-0: #5fb3a6;
+  --hz-1: #f2c94c;
+  --hz-2: #ff8a2b;
+  --hz-3: #f2462e;
+  --hz-4: #d1185e;
+  --ramp: linear-gradient(90deg, transparent 0%, var(--hz-0) 12%, var(--hz-1) 35%, var(--hz-2) 58%, var(--hz-3) 80%, var(--hz-4) 100%);
+  --hz-ink-0: #5fb3a6;
+  --hz-ink-1: #f2c94c;
+  --hz-ink-2: #ff8a2b;
+  --hz-ink-3: #f35b46;
+  --hz-ink-4: #e06291;
+
+  --cat-building: #ff7a3d;
+  --cat-electrical: #f5cf55;
+  --cat-industrial: #ff4f8b;
+  --cat-vehicle: #8fb3d9;
+  --cat-garbage: #b49cf0;
+  --cat-scrub: #5fd0a6;
+
+  --ok: #5fc28f;
+  --warn: #f2c94c;
+  --bad: #f2462e;
+  color-scheme: dark;
+}

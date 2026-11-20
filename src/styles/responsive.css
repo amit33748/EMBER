@@ -1,0 +1,243 @@
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE LAYOUT — single source of truth for /live geometry.
+   Loaded last; overrides the earlier per-component positioning.
+
+   Breakpoints (CSS px, after OS scaling):
+     phone          < 600     iPhone SE 320 … Pro Max 430, Android 360–412
+     tablet-port    600–899   iPad mini/Air portrait, small Android tablets, foldables
+     tablet-land    900–1279  iPad landscape, small laptops, 125%-scaled 1366 screens
+     laptop         1280–1599 13–15" laptops, 125%-scaled 1920 screens
+     desktop        ≥ 1600    full-HD and up
+   Plus: short-landscape phones (height ≤ 520) and iOS/Android safe areas.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.live-root {
+  --gut: 12px;
+  --lp-w: 352px;          /* left (district) panel */
+  --rp-w: 380px;          /* right (zone) drawer */
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+  height: 100dvh;
+}
+
+/* ── shared desktop/tablet-landscape frame (≥ 900) ── */
+@media (min-width: 900px) {
+  .topbar { top: calc(var(--gut) + var(--safe-t)); left: calc(var(--gut) + var(--safe-l)); right: calc(var(--gut) + var(--safe-r)); }
+  .kpi-row { left: calc(var(--gut) + var(--safe-l)); right: calc(var(--gut) + var(--safe-r)); }
+
+  /* panels run all the way to the bottom gutter — no dead strip under the left panel */
+  .panel-left {
+    left: calc(var(--gut) + var(--safe-l));
+    top: calc(var(--kpi-bottom, 172px) + 10px);
+    bottom: calc(var(--gut) + var(--safe-b));
+    width: var(--lp-w);
+  }
+  .panel-right {
+    right: calc(var(--gut) + var(--safe-r));
+    top: calc(var(--kpi-bottom, 172px) + 10px);
+    bottom: calc(var(--gut) + var(--safe-b));
+    width: var(--rp-w);
+  }
+
+  /* bottom bar lives in the column between the panels */
+  .live-bottom {
+    left: calc(var(--gut) * 2 + var(--lp-w) + var(--safe-l));
+    right: calc(var(--gut) + 44px + var(--safe-r)); /* leave room for the zoom control */
+    bottom: calc(var(--gut) + var(--safe-b));
+  }
+  .live-root:has(.panel-right) .live-bottom { right: calc(var(--gut) * 2 + var(--rp-w) + var(--safe-r)); }
+  .live-root:has(.panel-right) .live-bottom .dc { display: none; }
+  .maplibregl-ctrl-bottom-right { right: var(--safe-r) !important; bottom: calc(var(--safe-b) + 4px) !important; }
+  .live-root:has(.panel-right) .maplibregl-ctrl-bottom-right { right: calc(var(--rp-w) + var(--gut) + var(--safe-r)) !important; }
+
+  .watermark { top: calc(var(--kpi-bottom, 172px) + 10px); left: auto; right: calc(var(--gut) * 2 + var(--safe-r)); }
+  .live-root:has(.panel-right) .watermark { right: calc(var(--gut) * 2 + var(--rp-w) + var(--safe-r)); }
+}
+
+@media (min-width: 1280px) and (max-width: 1599px) { .live-root { --lp-w: 320px; --rp-w: 350px; } }
+@media (min-width: 900px) and (max-width: 1279px) {
+  .live-root { --lp-w: 296px; --rp-w: 320px; --gut: 10px; }
+  .fhs-num { font-size: 60px; }
+  .dc { width: 230px; }
+  .tm-speed .seg-btn { padding: 0 5px; }
+  .tm-time { font-size: var(--fs-xs); }
+}
+
+/* ── KPI strip: show only what fits, never scroll, never truncate ── */
+.kpi-scroll { grid-auto-columns: minmax(0, 1fr); overflow: hidden; }
+.kpi-wrap::before, .kpi-wrap::after, .kpi-nudge { display: none; }
+.stat-tile { padding: 10px 12px; }
+.st-short { display: none; }
+
+@media (max-width: 1599px) { .kpi-scroll .stat-tile[data-tier='5'] { display: none; } }
+@media (max-width: 1279px) { .kpi-scroll .stat-tile[data-tier='4'] { display: none; } }
+@media (max-width: 899px)  { .kpi-scroll .stat-tile[data-tier='3'] { display: none; } }
+@media (max-width: 599px)  { .kpi-scroll .stat-tile[data-tier='2'] { display: none; } }
+
+/* "More indicators" in the district panel lists exactly the tiles hidden above */
+.all-kpis { display: none; }
+.all-kpis dl { margin: 0; display: grid; gap: 2px; }
+.ak-row { display: none; grid-template-columns: 1fr auto; align-items: baseline; gap: 10px; padding: 7px 0; border-bottom: 1px dashed var(--line); }
+.ak-row dt { font-size: var(--fs-sm); color: var(--text-2); }
+.ak-row dd { margin: 0; text-align: right; font-size: var(--fs-md); color: var(--text); white-space: nowrap; }
+.ak-unit { font-size: var(--fs-xs); color: var(--text-3); }
+.ak-meta { display: block; font-family: var(--font-mono); font-size: 11px; color: var(--text-3); }
+@media (max-width: 1599px) { .all-kpis { display: block; } .ak-row[data-tier='5'] { display: grid; } }
+@media (max-width: 1279px) { .ak-row[data-tier='4'] { display: grid; } }
+@media (max-width: 899px)  { .ak-row[data-tier='3'] { display: grid; } }
+@media (max-width: 599px)  { .ak-row[data-tier='2'] { display: grid; } }
+
+/* ── layers popover: opaque, above everything in the top bar's layer, closes on outside tap ── */
+.layers-pop {
+  z-index: 40; background: var(--surface-solid); backdrop-filter: none; -webkit-backdrop-filter: none;
+  box-shadow: 0 18px 50px -12px rgba(0, 0, 0, .45); border: 1px solid var(--line-strong); max-width: min(340px, calc(100vw - 24px));
+}
+
+/* ═════════ phones + tablet portrait (< 900): bottom-sheet layout ═════════ */
+@media (max-width: 899px) {
+  .live-root { --gut: 8px; }
+  .topbar { top: calc(var(--gut) + var(--safe-t)); left: calc(var(--gut) + var(--safe-l)); right: calc(var(--gut) + var(--safe-r)); }
+  .kpi-row { left: calc(var(--gut) + var(--safe-l)); right: calc(var(--gut) + var(--safe-r)); top: calc(var(--topbar-bottom, 104px) + 6px); }
+  .stat-tile { padding: 8px 10px; }
+  .st-spark { margin-top: 6px; }
+
+  .panel-left {
+    left: var(--safe-l); right: var(--safe-r); width: auto; top: auto; bottom: 0;
+    max-height: min(72dvh, calc(100dvh - var(--kpi-bottom, 200px) - 12px));
+    padding-bottom: var(--safe-b);
+    transform: translateY(calc(100% - 156px - var(--safe-b)));
+  }
+  .panel-left[data-open] { transform: none; }
+  .panel-right {
+    left: var(--safe-l); right: var(--safe-r); width: auto; top: auto; bottom: 0;
+    max-height: min(80dvh, calc(100dvh - var(--topbar-bottom, 104px) - 12px));
+    padding-bottom: calc(18px + var(--safe-b));
+  }
+
+  /* history + feed share one row above the collapsed sheet */
+  .live-bottom { left: calc(var(--gut) + var(--safe-l)); right: calc(var(--gut) + var(--safe-r)); bottom: calc(164px + var(--safe-b)); }
+  .live-bottom-main { flex-direction: row; align-items: center; }
+  .live-bottom-main > .tm-open { flex: none; height: 38px; }
+  .live-bottom-main > .tm { position: absolute; left: 0; right: 0; bottom: calc(100% + 6px); }
+  .live-root:has(.panel-right) .live-bottom { display: none; }
+  .maplibregl-ctrl-bottom-right { right: calc(var(--safe-r) + 2px) !important; bottom: calc(214px + var(--safe-b)) !important; }
+
+  .watermark { top: calc(var(--kpi-bottom, 200px) + 6px); left: 50%; right: auto; transform: translateX(-50%); }
+}
+
+/* tablet portrait: sheet becomes a floating card, map stays visible beside it */
+@media (min-width: 600px) and (max-width: 899px) {
+  .panel-left { left: calc(var(--gut) + var(--safe-l)); right: auto; width: 380px; border-radius: var(--r-xl) var(--r-xl) 0 0; }
+  .panel-right { left: auto; right: calc(var(--gut) + var(--safe-r)); width: 400px; border-radius: var(--r-xl) var(--r-xl) 0 0; }
+  .live-bottom { left: calc(var(--gut) * 2 + 380px + var(--safe-l)); bottom: calc(var(--gut) + var(--safe-b)); }
+  .live-bottom-main { flex-direction: column; align-items: stretch; }
+  .live-bottom-main > .tm { position: static; }
+  .maplibregl-ctrl-bottom-right { bottom: calc(120px + var(--safe-b)) !important; }
+}
+
+/* phones */
+@media (max-width: 599px) {
+  .st-long { display: none; }
+  .st-short { display: inline; }
+  .st-value { font-size: 22px; }
+  .st-meta { display: none; }
+  .kpi-collapse { width: 28px; height: 28px; }
+  .fhs-num { font-size: 52px; }
+  .topbar .wordmark span { font-size: 14px; }
+  .live-badge { padding: 0 9px; gap: 6px; }
+  .ticker { height: 38px; padding-left: 10px; gap: 8px; }
+  .ticker-label { display: none; }
+  .tk-zone { display: none; }
+  .tm-row { flex-wrap: wrap; row-gap: 8px; }
+  .tm-ctrls { margin-left: 0; }
+  .tm-time { font-size: var(--fs-xs); }
+  .cp-backdrop { padding-top: calc(10px + var(--safe-t)); }
+  .cp { max-height: calc(100dvh - 20px - var(--safe-t) - var(--safe-b)); }
+  .cp-foot { display: none; }
+}
+
+/* very narrow (iPhone SE 1st gen / 320 px Androids) */
+@media (max-width: 359px) {
+  .live-badge .live-sep, .live-badge .live-sim { display: none; }
+  .seg-btn { min-width: 28px; }
+  .stat-tile { padding: 7px 8px; }
+  .st-value { font-size: 19px; }
+}
+
+/* short landscape phones: no room for sparklines or a tall sheet */
+@media (max-height: 520px) and (orientation: landscape) {
+  .st-spark, .st-meta { display: none; }
+  .stat-tile { padding: 6px 10px; }
+  .panel-left { transform: translateY(calc(100% - 96px - var(--safe-b))); max-height: 86dvh; }
+  .panel-left .gauge-wrap, .panel-hero p { display: none; }
+  .fhs-num { font-size: 40px; }
+  .live-bottom { bottom: calc(102px + var(--safe-b)); }
+  .maplibregl-ctrl-bottom-right { bottom: calc(150px + var(--safe-b)) !important; }
+  .watermark { display: none; }
+}
+
+/* coarse pointers: everything tappable ≥ 40px */
+@media (pointer: coarse) {
+  .chip { height: 40px; }
+  .icon-btn, .tk-pause { width: 40px; height: 40px; }
+  .seg-btn { height: 34px; }
+}
+
+/* touch phones have pinch-zoom; the +/- control only collided with chrome */
+@media (max-width: 899px) and (pointer: coarse) {
+  .maplibregl-ctrl-bottom-right .maplibregl-ctrl-group { display: none; }
+}
+/* open sheet is modal-ish: hide what it would cover */
+@media (max-width: 599px) {
+  .live-root:has(.panel-left[data-open]) .live-bottom,
+  .live-root:has(.panel-left[data-open]) .watermark,
+  .live-root:has(.panel-left[data-open]) .maplibregl-ctrl-bottom-right { visibility: hidden; }
+}
+/* long zone names wrap instead of truncating in narrower panels */
+@media (max-width: 1599px) {
+  .zl-name { white-space: normal; line-height: 1.25; }
+}
+
+/* landscape phones: one-row top bar */
+@media (max-height: 520px) and (orientation: landscape) and (max-width: 1100px) {
+  .topbar { flex-wrap: nowrap; padding: 4px 6px 4px 10px; }
+  .topbar > .seg-text { order: 0; width: auto; flex: 0 1 260px; }
+  .topbar > .seg-text .seg-btn { height: 30px; font-size: var(--fs-xs); padding: 0 10px; }
+  .topbar .wordmark span { display: none; }
+  .kpi-row { top: calc(var(--topbar-bottom, 56px) + 4px); }
+}
+
+@media (min-width: 900px) {
+  .live-root:has(.panel-right) .maplibregl-ctrl-bottom-right { right: calc(var(--rp-w) + var(--gut) * 2 + var(--safe-r)) !important; }
+  .live-root:has(.panel-right) .live-bottom { right: calc(var(--gut) * 3 + var(--rp-w) + 44px + var(--safe-r)); }
+}
+
+/* weather strip: 2×2 when the district panel is narrower than its desktop width */
+@media (max-width: 1599px) {
+  .wx-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 8px; }
+}
+
+/* basemap picker */
+.icon-btn[data-on] { color: var(--accent); border-color: color-mix(in oklab, var(--accent) 55%, transparent); }
+.bm-pop { width: min(360px, calc(100vw - 24px)); max-width: none; display: block; }
+.bm-h { margin-bottom: 8px; }
+.bm-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.bm-card { display: flex; flex-direction: column; gap: 5px; padding: 0; border: 0; background: none; cursor: pointer; color: var(--text-2); text-align: left; }
+.bm-thumb { position: relative; display: block; aspect-ratio: 4 / 3; border-radius: 10px; border: 1px solid var(--line-strong); box-shadow: inset 0 0 0 2px transparent; transition: box-shadow var(--t-fast), transform var(--t-fast); }
+.bm-card:hover .bm-thumb { transform: translateY(-1px); }
+.bm-card[data-on] .bm-thumb { box-shadow: inset 0 0 0 2px var(--accent), 0 0 0 2px var(--accent); }
+.bm-card[data-on] .bm-label { color: var(--text); font-weight: 600; }
+.bm-check { position: absolute; right: 4px; top: 4px; width: 18px; height: 18px; border-radius: 99px; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); }
+.bm-label { font-size: var(--fs-sm); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bm-note { margin-top: 10px; font-size: 11px; color: var(--text-3); line-height: 1.4; }
+@media (max-width: 359px) { .bm-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.bm-theme { display: none; align-items: center; justify-content: space-between; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+@media (max-width: 599px) {
+  .topbar > .flex > .seg[aria-label='Theme'] { display: none; }
+  .bm-theme { display: flex; }
+}
+.bm-thumb { overflow: hidden; }
+.bm-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block; }
+.bm-check { z-index: 1; box-shadow: 0 1px 4px rgba(0,0,0,.4); }

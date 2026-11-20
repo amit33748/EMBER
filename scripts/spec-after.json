@@ -1,0 +1,63 @@
+{ "shots": [
+  { "name": "after-01-landing-hero-dark", "url": "/", "theme": "dark", "wait": 6000,
+    "marks": [
+      { "n": 1, "sel": ".hero-title", "sev": "ok", "label": "M1 ✓ h1 reads 'Every ember, mapped.'" },
+      { "n": 2, "sel": ".hero-card-grid", "sev": "ok", "label": "C1/C2 ✓ High+ zones moves (0–17 over a week)" },
+      { "n": 3, "rect": [700, 300, 300, 250], "sev": "ok", "label": "m11 ✓ hot area framed left of card" }
+    ] },
+  { "name": "after-02-landing-hero-light", "url": "/", "theme": "light", "wait": 6000,
+    "marks": [
+      { "n": 1, "sel": ".hero-card-num", "sev": "ok", "label": "C3 ✓ score uses --hz-ink (≥5:1)" },
+      { "n": 2, "sel": ".hero-sub", "sev": "ok", "label": "M7 ✓ no basemap labels behind copy" },
+      { "n": 3, "sel": ".l-nav-links", "sev": "ok", "label": "m3 ✓ 36px nav targets" }
+    ] },
+  { "name": "after-03-landing-snapshot", "url": "/", "theme": "dark", "viewport": { "width": 1440, "height": 1240 }, "wait": 4000, "scrollTo": "#snapshot",
+    "marks": [
+      { "n": 1, "sel": ".bento-feature .bt", "sev": "ok", "label": "M11 ✓ fixed 0–100 axis, band stripes, 24h outlook" },
+      { "n": 2, "sel": ".bento-cell", "idx": 5, "sev": "ok", "label": "C2 ✓ High+ zones…" },
+      { "n": 3, "sel": ".bento-cell", "idx": 6, "sev": "ok", "label": "…and Pop. High+ share one threshold" },
+      { "n": 4, "sel": ".bento-cell", "idx": 7, "sev": "ok", "label": "M10 ✓ dead KPI → 'Next peak' forecast" },
+      { "n": 5, "sel": ".bento-cell", "idx": 2, "sev": "ok", "label": "M10 ✓ 72h window + sample size" }
+    ] },
+  { "name": "after-04-landing-scale-light", "url": "/", "theme": "light", "wait": 4000, "scrollTo": "#scale",
+    "marks": [ { "n": 1, "sel": ".scale-row", "idx": 1, "sev": "ok", "label": "C3 ✓ band names in ink colours" } ] },
+  { "name": "after-05-live-dark", "url": "/live", "theme": "dark", "wait": 5000,
+    "marks": [
+      { "n": 1, "sel": ".kpi-scroll", "sev": "ok", "label": "M3/M4 ✓ all 10 KPIs fit, no truncation" },
+      { "n": 2, "sel": ".panel-hero", "sev": "ok", "label": "C1 ✓ score now spans Low→High through the day" },
+      { "n": 3, "sel": ".tk-pause", "sev": "ok", "label": "M2 ✓ feed pause" },
+      { "n": 4, "sel": ".dc-head", "sev": "ok", "label": "m2 ✓ single-line legend" }
+    ] },
+  { "name": "after-06-live-light", "url": "/live", "theme": "light", "wait": 5000, "js": "document.querySelector('.panel-left .panel-body').scrollTop=9999", "after": 1200,
+    "marks": [
+      { "n": 1, "sel": ".fhs-num", "sev": "ok", "label": "C3 ✓ ink colour ≥5:1" },
+      { "n": 2, "sel": ".zone-list", "sev": "ok", "label": "C3/M5 ✓ AA values, 12px labels" },
+      { "n": 3, "rect": [560, 300, 380, 300], "sev": "ok", "label": "M6 ✓ amber-first ramp on cream" },
+      { "n": 4, "sel": ".st-marker", "idx": 2, "sev": "ok", "label": "m1 ✓ neutral stations" }
+    ] },
+  { "name": "after-07-zone-drawer", "url": "/live", "theme": "dark", "wait": 4500, "js": "document.querySelectorAll('.zone-list button')[0].click()", "after": 2600,
+    "marks": [
+      { "n": 1, "sel": ".panel-right .breakdown", "idx": 1, "sev": "ok", "label": "Fuel × time-of-day activity" },
+      { "n": 2, "sel": ".panel-right .bt", "sev": "ok", "label": "M11 ✓ past + dashed outlook, 0–100" },
+      { "n": 3, "sel": ".panel-right .station-card", "sev": "ok", "label": "m8 ✓ 'straight-line' + est. minutes" }
+    ] },
+  { "name": "after-08-replay", "url": "/live?tick=-200", "theme": "dark", "wait": 4500,
+    "marks": [ { "n": 1, "sel": ".tm-speed", "sev": "ok", "label": "M8 ✓ 2.5h/s measured 30.1 ticks/s" } ] },
+  { "name": "after-09-3d-density", "url": "/live", "theme": "dark", "wait": 4500,
+    "js": "(async () => { document.querySelector('.topbar-menu').click(); await new Promise(r => setTimeout(r, 300)); [...document.querySelectorAll('.layers-pop .chip')].filter(c => /Terrain|3D density/.test(c.textContent)).forEach(c => c.click()); document.querySelector('.topbar-menu').click(); })()", "after": 4500,
+    "marks": [ { "n": 1, "rect": [380, 260, 1000, 500], "sev": "ok", "label": "C5 ✓ 1 km density columns, labels hidden while pitched" } ] },
+  { "name": "after-10-mobile-live", "url": "/live", "theme": "dark", "viewport": { "width": 375, "height": 812 }, "mobile": true, "dpr": 2, "wait": 4500,
+    "marks": [
+      { "n": 1, "sel": ".kpi-wrap", "sev": "ok", "label": "C4 ✓ KPIs below the measured top bar" },
+      { "n": 2, "sel": ".maplibregl-ctrl-attrib", "sev": "ok", "label": "M12 ✓ attribution collapsed" }
+    ] },
+  { "name": "after-11-mobile-landing", "url": "/", "theme": "light", "viewport": { "width": 375, "height": 812 }, "mobile": true, "dpr": 2, "wait": 5000,
+    "marks": [ { "n": 1, "sel": ".hero-title", "sev": "ok", "label": "M7 ✓ clean headline" } ] },
+  { "name": "after-12-summer-scenario", "url": "/live", "theme": "dark", "wait": 4500,
+    "js": "(async () => { document.querySelector('.dc-head').click(); await new Promise(r => setTimeout(r, 500)); [...document.querySelectorAll('.dc .seg-btn')].find(b => /Summer/.test(b.textContent)).click(); })()", "after": 3500,
+    "marks": [
+      { "n": 1, "sel": ".live-badge", "sev": "ok", "label": "Scenario flagged: SIM·MAY" },
+      { "n": 2, "sel": ".panel-hero", "sev": "ok", "label": "Upper bands reachable for demos" }
+    ] },
+  { "name": "after-13-contrast", "url": "file:///E:/fiarsimulation/docs/audit/contrast-after.html", "viewport": { "width": 1180, "height": 1240 }, "wait": 300 }
+]}

@@ -1,0 +1,22 @@
+{
+ "shots": [
+  {
+   "name": "_perf-flat",
+   "url": "/live",
+   "theme": "dark",
+   "wait": 5000,
+   "js": "(async () => { const m = window.__map_full; const frames = []; let last = performance.now(); let run = true; const f = () => { const n = performance.now(); frames.push(n - last); last = n; if (run) requestAnimationFrame(f); }; requestAnimationFrame(f); m.easeTo({ bearing: 60, zoom: m.getZoom() + 0.6, duration: 4000 }); await new Promise(r => setTimeout(r, 4200)); run = false; frames.sort((a, b) => a - b); window.__perf = { fps: +(1000 / (frames.reduce((a, b) => a + b, 0) / frames.length)).toFixed(1), p95ms: +frames[Math.floor(frames.length * 0.95)].toFixed(1), worstMs: +frames[frames.length - 1].toFixed(1) }; })()",
+   "after": 300,
+   "probe": "window.__perf"
+  },
+  {
+   "name": "_perf-terrain",
+   "url": "/live",
+   "theme": "dark",
+   "wait": 5000,
+   "js": "(async () => { document.querySelector('.topbar-menu').click(); await new Promise(r => setTimeout(r, 300)); [...document.querySelectorAll('.layers-pop .chip')].filter(c => /Terrain|3D density/.test(c.textContent)).forEach(c => c.click()); document.querySelector('.topbar-menu').click(); await new Promise(r => setTimeout(r, 9000)); const m = window.__map_full; const frames = []; let last = performance.now(); let run = true; const f = () => { const n = performance.now(); frames.push(n - last); last = n; if (run) requestAnimationFrame(f); }; requestAnimationFrame(f); m.easeTo({ bearing: 40, zoom: m.getZoom() + 0.6, duration: 4000 }); await new Promise(r => setTimeout(r, 4200)); run = false; frames.sort((a, b) => a - b); window.__perf = { fps: +(1000 / (frames.reduce((a, b) => a + b, 0) / frames.length)).toFixed(1), p95ms: +frames[Math.floor(frames.length * 0.95)].toFixed(1), worstMs: +frames[frames.length - 1].toFixed(1), windOn: !!document.querySelector('.wind-canvas') }; })()",
+   "after": 300,
+   "probe": "window.__perf"
+  }
+ ]
+}

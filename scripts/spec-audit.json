@@ -1,0 +1,436 @@
+{
+ "shots": [
+  {
+   "name": "01-landing-hero-dark",
+   "url": "/",
+   "theme": "dark",
+   "wait": 6000,
+   "marks": [
+    {
+     "n": 1,
+     "sel": ".hero-title",
+     "sev": "major",
+     "label": "h1 text = 'Everyember,mapped.' (no spaces in DOM)"
+    },
+    {
+     "n": 2,
+     "sel": ".hero-card-grid",
+     "sev": "critical",
+     "label": "High-risk always 0 (flat model)"
+    },
+    {
+     "n": 3,
+     "sel": ".hero-watermark",
+     "sev": "ok",
+     "label": "Honest SIM label"
+    },
+    {
+     "n": 4,
+     "sel": ".hero-card-num",
+     "sev": "ok",
+     "label": "Strong focal number"
+    }
+   ]
+  },
+  {
+   "name": "02-landing-hero-light",
+   "url": "/",
+   "theme": "light",
+   "wait": 6000,
+   "marks": [
+    {
+     "n": 1,
+     "sel": ".hero-card-num",
+     "sev": "critical",
+     "label": "Amber on cream 2.87:1 — fails even large-text AA"
+    },
+    {
+     "n": 2,
+     "sel": ".hero-sub",
+     "sev": "ok",
+     "label": "Body copy 7.2:1"
+    },
+    {
+     "n": 3,
+     "sel": ".l-nav-links",
+     "sev": "minor",
+     "label": "Nav links 20px tall targets"
+    }
+   ]
+  },
+  {
+   "name": "03-landing-snapshot",
+   "url": "/",
+   "theme": "dark",
+   "wait": 4000,
+   "scrollTo": "#snapshot",
+   "marks": [
+    {
+     "n": 1,
+     "sel": ".bento-feature",
+     "sev": "major",
+     "label": "24h FHS line spans ~28–34 only"
+    },
+    {
+     "n": 2,
+     "sel": ".bento-cell",
+     "idx": 7,
+     "sev": "major",
+     "label": "Station utilization ≈0% most of the time"
+    },
+    {
+     "n": 3,
+     "sel": ".bento-cell",
+     "idx": 5,
+     "sev": "critical",
+     "label": "0 high-risk…"
+    },
+    {
+     "n": 4,
+     "sel": ".bento-cell",
+     "idx": 6,
+     "sev": "critical",
+     "label": "…yet 440k 'exposed' (different thresholds)"
+    },
+    {
+     "n": 5,
+     "sel": ".bento-mix",
+     "sev": "ok",
+     "label": "New categorical mix"
+    }
+   ],
+   "viewport": {
+    "width": 1440,
+    "height": 1240
+   }
+  },
+  {
+   "name": "04-landing-scale-light",
+   "url": "/",
+   "theme": "light",
+   "wait": 4000,
+   "scrollTo": "#scale",
+   "marks": [
+    {
+     "n": 1,
+     "sel": ".scale-row",
+     "idx": 1,
+     "sev": "major",
+     "label": "'Moderate' label 2.87:1"
+    },
+    {
+     "n": 2,
+     "sel": ".scale-row",
+     "idx": 2,
+     "sev": "major",
+     "label": "'High' label 2.91:1"
+    },
+    {
+     "n": 3,
+     "sel": ".l-head p",
+     "idx": 2,
+     "sev": "ok",
+     "label": "Index flagged as prototype"
+    }
+   ]
+  },
+  {
+   "name": "05-live-dark-overview",
+   "url": "/live",
+   "theme": "dark",
+   "wait": 5000,
+   "marks": [
+    {
+     "n": 1,
+     "sel": ".stat-tile",
+     "sev": "major",
+     "label": "Last tile cut; 254px hidden, no scroll cue",
+     "idx": 9
+    },
+    {
+     "n": 2,
+     "sel": ".stat-tile",
+     "idx": 1,
+     "sev": "minor",
+     "label": "Labels truncated (4 tiles)"
+    },
+    {
+     "n": 3,
+     "sel": ".panel-hero",
+     "sev": "critical",
+     "label": "Always 'Moderate' — 7-day sample 28–34"
+    },
+    {
+     "n": 4,
+     "sel": ".ticker",
+     "sev": "major",
+     "label": "Auto-scrolling, no keyboard pause (WCAG 2.2.2)"
+    },
+    {
+     "n": 5,
+     "sel": ".watermark",
+     "sev": "ok",
+     "label": "Persistent SIM watermark"
+    },
+    {
+     "n": 6,
+     "sel": ".panel-left .mix",
+     "sev": "ok",
+     "label": "Redesigned mix"
+    },
+    {
+     "n": 7,
+     "sel": ".tm-open",
+     "sev": "ok",
+     "label": "History entry point"
+    }
+   ]
+  },
+  {
+   "name": "06-live-light-overview",
+   "url": "/live",
+   "theme": "light",
+   "wait": 5000,
+   "marks": [
+    {
+     "n": 1,
+     "sel": ".fhs-num",
+     "sev": "critical",
+     "label": "Primary number 2.87:1"
+    },
+    {
+     "n": 2,
+     "sel": ".panel-hero .eyebrow",
+     "sev": "major",
+     "label": "11px mono text-3 = 3.58:1"
+    },
+    {
+     "n": 3,
+     "sel": ".zone-list",
+     "sev": "major",
+     "label": "Amber zone values fail AA"
+    },
+    {
+     "n": 4,
+     "rect": [
+      560,
+      330,
+      320,
+      280
+     ],
+     "sev": "major",
+     "label": "Low-band teal reads muddy on cream"
+    },
+    {
+     "n": 5,
+     "sel": ".st-marker",
+     "idx": 2,
+     "sev": "minor",
+     "label": "Stations in hazard-orange"
+    },
+    {
+     "n": 6,
+     "sel": ".dc",
+     "sev": "minor",
+     "label": "Legend title wraps awkwardly"
+    }
+   ],
+   "js": "document.querySelector('.panel-left .panel-body').scrollTop=9999",
+   "after": 1200
+  },
+  {
+   "name": "07-live-zone-drawer",
+   "url": "/live",
+   "theme": "dark",
+   "wait": 4500,
+   "js": "document.querySelectorAll('.zone-list button')[0].click()",
+   "after": 2600,
+   "marks": [
+    {
+     "n": 1,
+     "sel": ".panel-right .breakdown",
+     "idx": 0,
+     "sev": "ok",
+     "label": "Transparent score breakdown"
+    },
+    {
+     "n": 2,
+     "sel": ".panel-right .station-card",
+     "sev": "minor",
+     "label": "Straight-line km, not road ETA"
+    },
+    {
+     "n": 3,
+     "sel": ".panel-right svg[role=img]",
+     "idx": 1,
+     "sev": "minor",
+     "label": "Sparkline has no axis/time labels"
+    }
+   ]
+  },
+  {
+   "name": "08-live-replay",
+   "url": "/live?tick=-200",
+   "theme": "dark",
+   "wait": 4500,
+   "marks": [
+    {
+     "n": 1,
+     "sel": ".tm",
+     "sev": "ok",
+     "label": "7-day replay + scrubber"
+    },
+    {
+     "n": 2,
+     "sel": ".tm-speed",
+     "sev": "major",
+     "label": "2.5h/s delivers 20 of 30 ticks/s"
+    },
+    {
+     "n": 3,
+     "sel": ".live-badge",
+     "sev": "ok",
+     "label": "REPLAY state unmistakable"
+    }
+   ]
+  },
+  {
+   "name": "09-live-palette",
+   "url": "/live",
+   "theme": "dark",
+   "wait": 4000,
+   "js": "window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', ctrlKey: true }))",
+   "after": 800,
+   "marks": [
+    {
+     "n": 1,
+     "sel": ".cp",
+     "sev": "ok",
+     "label": "Ctrl+K palette — zones, stations, layers, replay"
+    }
+   ]
+  },
+  {
+   "name": "10-live-terrain-3d",
+   "url": "/live",
+   "theme": "dark",
+   "wait": 4500,
+   "js": "(async () => { document.querySelector('.topbar-menu').click(); await new Promise(r => setTimeout(r, 300)); [...document.querySelectorAll('.layers-pop .chip')].filter(c => /Terrain|3D zones/.test(c.textContent)).forEach(c => c.click()); document.querySelector('.topbar-menu').click(); })()",
+   "after": 4500,
+   "marks": [
+    {
+     "n": 1,
+     "rect": [
+      380,
+      290,
+      1000,
+      460
+     ],
+     "sev": "critical",
+     "label": "3D zones: 2.8 km plateaus bury the density surface"
+    },
+    {
+     "n": 2,
+     "rect": [
+      480,
+      370,
+      260,
+      60
+     ],
+     "sev": "major",
+     "label": "Basemap labels ghost on extrusion tops"
+    },
+    {
+     "n": 3,
+     "sel": ".stat-tile",
+     "idx": 6,
+     "sev": "minor",
+     "label": "3D toggle tied to a KPI that is always 0"
+    }
+   ]
+  },
+  {
+   "name": "11-mobile-live",
+   "url": "/live",
+   "theme": "dark",
+   "viewport": {
+    "width": 375,
+    "height": 812
+   },
+   "mobile": true,
+   "dpr": 2,
+   "wait": 4500,
+   "marks": [
+    {
+     "n": 1,
+     "sel": ".kpi-row",
+     "sev": "critical",
+     "label": "Top bar row 2 covers KPI labels"
+    },
+    {
+     "n": 2,
+     "sel": ".maplibregl-ctrl-attrib",
+     "sev": "major",
+     "label": "Attribution expanded over map"
+    },
+    {
+     "n": 3,
+     "sel": ".st-marker",
+     "idx": 3,
+     "sev": "minor",
+     "label": "Station icons dominate"
+    },
+    {
+     "n": 4,
+     "sel": ".panel-left",
+     "sev": "ok",
+     "label": "Bottom sheet"
+    }
+   ]
+  },
+  {
+   "name": "12-mobile-landing",
+   "url": "/",
+   "theme": "light",
+   "viewport": {
+    "width": 375,
+    "height": 812
+   },
+   "mobile": true,
+   "dpr": 2,
+   "wait": 5000,
+   "marks": [
+    {
+     "n": 1,
+     "sel": ".hero-card-num",
+     "sev": "critical",
+     "label": "Amber 2.87:1"
+    },
+    {
+     "n": 2,
+     "sel": ".sos",
+     "sev": "ok",
+     "label": "Real 101 always reachable"
+    }
+   ]
+  },
+  {
+   "name": "13-incident-mix-closeup",
+   "url": "/live",
+   "theme": "dark",
+   "dpr": 2,
+   "elem": ".panel-left .mix",
+   "js": "document.querySelector('.panel-left .panel-body').scrollTop=170",
+   "after": 1200
+  },
+  {
+   "name": "14-contrast-matrix",
+   "url": "file:///E:/fiarsimulation/docs/audit/contrast.html",
+   "viewport": {
+    "width": 1180,
+    "height": 760
+   },
+   "wait": 300
+  }
+ ]
+}

@@ -1,0 +1,271 @@
+{
+ "shots": [
+  {
+   "name": "devices/live-01-iphone-se",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 320,
+    "height": 568
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/live-02-android-360",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 360,
+    "height": 780
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/live-03-iphone-13mini",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 375,
+    "height": 812
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/live-04-iphone-15",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 393,
+    "height": 852
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/live-05-pixel-8",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 412,
+    "height": 915
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/live-06-iphone-promax",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 430,
+    "height": 932
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/live-07-phone-landscape",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 844,
+    "height": 390
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/live-08-ipad-mini",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 768,
+    "height": 1024
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/live-09-ipad-land",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 1024,
+    "height": 768
+   },
+   "mobile": false,
+   "wait": 4500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/live-10-ipad-pro-port",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 834,
+    "height": 1194
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/live-11-laptop-1280",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 1280,
+    "height": 800
+   },
+   "mobile": false,
+   "wait": 4500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/live-12-user-1536",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 1536,
+    "height": 864
+   },
+   "mobile": false,
+   "wait": 4500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/live-13-fullhd",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 1920,
+    "height": 1080
+   },
+   "mobile": false,
+   "wait": 4500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/live-14-qhd",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 2560,
+    "height": 1440
+   },
+   "mobile": false,
+   "wait": 4500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/landing-01-iphone-se",
+   "url": "/",
+   "theme": "light",
+   "viewport": {
+    "width": 320,
+    "height": 568
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "({ overflowX: document.documentElement.scrollWidth - innerWidth })"
+  },
+  {
+   "name": "devices/landing-04-iphone-15",
+   "url": "/",
+   "theme": "light",
+   "viewport": {
+    "width": 393,
+    "height": 852
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "({ overflowX: document.documentElement.scrollWidth - innerWidth })"
+  },
+  {
+   "name": "devices/landing-08-ipad-mini",
+   "url": "/",
+   "theme": "light",
+   "viewport": {
+    "width": 768,
+    "height": 1024
+   },
+   "mobile": true,
+   "wait": 4500,
+   "probe": "({ overflowX: document.documentElement.scrollWidth - innerWidth })"
+  },
+  {
+   "name": "devices/landing-09-ipad-land",
+   "url": "/",
+   "theme": "light",
+   "viewport": {
+    "width": 1024,
+    "height": 768
+   },
+   "mobile": false,
+   "wait": 4500,
+   "probe": "({ overflowX: document.documentElement.scrollWidth - innerWidth })"
+  },
+  {
+   "name": "devices/landing-12-user-1536",
+   "url": "/",
+   "theme": "light",
+   "viewport": {
+    "width": 1536,
+    "height": 864
+   },
+   "mobile": false,
+   "wait": 4500,
+   "probe": "({ overflowX: document.documentElement.scrollWidth - innerWidth })"
+  },
+  {
+   "name": "devices/landing-14-qhd",
+   "url": "/",
+   "theme": "light",
+   "viewport": {
+    "width": 2560,
+    "height": 1440
+   },
+   "mobile": false,
+   "wait": 4500,
+   "probe": "({ overflowX: document.documentElement.scrollWidth - innerWidth })"
+  },
+  {
+   "name": "devices/live-12-user-1536-drawer-layers",
+   "url": "/live",
+   "theme": "light",
+   "viewport": {
+    "width": 1536,
+    "height": 864
+   },
+   "wait": 4500,
+   "js": "(async () => { document.querySelectorAll('.zone-list button')[3].click(); await new Promise(r => setTimeout(r, 1500)); document.querySelector('.topbar-menu').click(); })()",
+   "after": 1500,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  },
+  {
+   "name": "devices/live-04-iphone-15-sheet-open",
+   "url": "/live",
+   "theme": "dark",
+   "viewport": {
+    "width": 393,
+    "height": 852
+   },
+   "mobile": true,
+   "wait": 4500,
+   "js": "document.querySelector('.sheet-handle').click()",
+   "after": 1200,
+   "probe": "(() => { const vis = el => { if (!el) return false; const s = getComputedStyle(el); const r = el.getBoundingClientRect(); return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 1 && r.height > 1; }; const pick = { topbar: '.topbar', kpis: '.kpi-wrap', left: '.panel-left', right: '.panel-right', bottom: '.live-bottom-main', dc: '.dc', water: '.watermark', zoom: '.maplibregl-ctrl-bottom-right .maplibregl-ctrl-group' }; const R = {}; for (const [k, s] of Object.entries(pick)) { const el = document.querySelector(s); if (vis(el)) { const r = el.getBoundingClientRect(); R[k] = { l: r.left, t: Math.max(0, r.top), r: r.right, b: Math.min(innerHeight, r.bottom) }; } } const over = []; const ks = Object.keys(R); for (let i = 0; i < ks.length; i++) for (let j = i + 1; j < ks.length; j++) { const a = R[ks[i]], b = R[ks[j]]; const w = Math.min(a.r, b.r) - Math.max(a.l, b.l), h = Math.min(a.b, b.b) - Math.max(a.t, b.t); if (w > 2 && h > 2) over.push(ks[i] + '×' + ks[j] + ' ' + Math.round(w) + 'x' + Math.round(h)); } const trunc = [...document.querySelectorAll('.stat-tile .st-label, .tm-time, .zl-name, .st-text')].filter(e => vis(e) && e.scrollWidth > e.clientWidth + 1).map(e => e.textContent.trim()); const off = ks.filter(k => R[k].l < -1 || R[k].r > innerWidth + 1).map(k => k + ' off-x'); return { vw: innerWidth, vh: innerHeight, overflowX: document.documentElement.scrollWidth - innerWidth, kpisShown: [...document.querySelectorAll('.kpi-scroll .stat-tile')].filter(vis).length, moreRows: [...document.querySelectorAll('.ak-row')].filter(vis).length, overlaps: over, offscreen: off, truncated: trunc }; })()"
+  }
+ ]
+}
