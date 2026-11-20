@@ -241,3 +241,19 @@
 .bm-thumb { overflow: hidden; }
 .bm-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block; }
 .bm-check { z-index: 1; box-shadow: 0 1px 4px rgba(0,0,0,.4); }
+
+/* Floating UI over the map uses the near-opaque panel surface so labels and
+   roads never read through (glass blur alone was not enough on busy maps). */
+.live-root .panel-left,
+.live-root .panel-right,
+.live-root .topbar,
+.live-root .stat-tile,
+.live-root .dc,
+.live-root .ticker,
+.live-root .tm,
+.live-root .tm-open,
+.live-root .layers-pop,
+.ember-popup .maplibregl-popup-content {
+  background: var(--surface-panel);
+}
+.live-root .panel-hero::after { opacity: .35; }

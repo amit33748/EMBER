@@ -36,6 +36,7 @@
   --bg: #f3eee6;
   --bg-2: #ebe4d8;
   --surface: rgba(252, 249, 244, 0.78);
+  --surface-panel: rgba(250, 247, 241, 0.97); /* floating panels over the map: map must not read through */
   --surface-solid: #fbf8f3;
   --surface-strong: rgba(255, 253, 249, 0.94);
   --line: rgba(40, 28, 18, 0.12);
@@ -88,6 +89,7 @@
     --bg: #0c0a08;
     --bg-2: #14100d;
     --surface: rgba(22, 17, 13, 0.72);
+    --surface-panel: rgba(21, 16, 12, 0.95);
     --surface-solid: #17120e;
     --surface-strong: rgba(26, 20, 15, 0.92);
     --line: rgba(255, 220, 190, 0.09);
@@ -131,6 +133,7 @@
   --bg: #0c0a08;
   --bg-2: #14100d;
   --surface: rgba(22, 17, 13, 0.72);
+  --surface-panel: rgba(21, 16, 12, 0.95);
   --surface-solid: #17120e;
   --surface-strong: rgba(26, 20, 15, 0.92);
   --line: rgba(255, 220, 190, 0.09);
